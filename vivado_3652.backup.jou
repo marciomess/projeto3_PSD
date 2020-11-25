@@ -1,0 +1,23 @@
+#-----------------------------------------------------------
+# Vivado v2020.1 (64-bit)
+# SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
+# IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
+# Start of session at: Wed Nov 25 15:13:33 2020
+# Process ID: 3652
+# Current directory: C:/Users/joao/AppData/Roaming/Xilinx/Vivado
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent4080
+# Log file: C:/Users/joao/AppData/Roaming/Xilinx/Vivado/vivado.log
+# Journal file: C:/Users/joao/AppData/Roaming/Xilinx/Vivado\vivado.jou
+#-----------------------------------------------------------
+start_gui
+create_project project_3 D:/wetransfer-2fda69/project_3 -part xc7a35tcpg236-1
+set_property target_language VHDL [current_project]
+import_files -norecurse {{C:/Users/joao/OneDrive - Universidade de Lisboa/Ambiente de Trabalho/psd_lab3/top_cir-QKAJS7/MemOut.vhd} {C:/Users/joao/OneDrive - Universidade de Lisboa/Ambiente de Trabalho/psd_lab3/top_cir-QKAJS7/UART_TX_KB.vhd} {C:/Users/joao/OneDrive - Universidade de Lisboa/Ambiente de Trabalho/psd_lab3/top_cir-QKAJS7/circuit.vhd} {C:/Users/joao/OneDrive - Universidade de Lisboa/Ambiente de Trabalho/psd_lab3/top_cir-QKAJS7/top_circuit.vhd} {C:/Users/joao/OneDrive - Universidade de Lisboa/Ambiente de Trabalho/psd_lab3/top_cir-QKAJS7/UART_TX_1B.vhd} {C:/Users/joao/OneDrive - Universidade de Lisboa/Ambiente de Trabalho/psd_lab3/top_cir-QKAJS7/sevenSeg.vhd} {C:/Users/joao/OneDrive - Universidade de Lisboa/Ambiente de Trabalho/psd_lab3/top_cir-QKAJS7/UART_CTRL.vhd} {C:/Users/joao/OneDrive - Universidade de Lisboa/Ambiente de Trabalho/psd_lab3/top_cir-QKAJS7/MemIn.vhd} {C:/Users/joao/OneDrive - Universidade de Lisboa/Ambiente de Trabalho/psd_lab3/top_cir-QKAJS7/debouncer.vhd}}
+update_compile_order -fileset sources_1
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+import_files -fileset sim_1 -norecurse {{C:/Users/joao/OneDrive - Universidade de Lisboa/Ambiente de Trabalho/psd_lab3/top_cir-QKAJS7/top_circuit_tb.vhd}}
+update_compile_order -fileset sim_1
+add_files -fileset constrs_1 -norecurse {{C:/Users/joao/OneDrive - Universidade de Lisboa/Ambiente de Trabalho/psd_lab3/top_cir-QKAJS7/Basys3_Lab3.xdc}}
+import_files -fileset constrs_1 {{C:/Users/joao/OneDrive - Universidade de Lisboa/Ambiente de Trabalho/psd_lab3/top_cir-QKAJS7/Basys3_Lab3.xdc}}
+update_compile_order -fileset sim_1
+archive_project {C:/Users/joao/OneDrive - Universidade de Lisboa/Ambiente de Trabalho/psd_lab3/project_3.xpr.zip} -temp_dir C:/Users/joao/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-3652-DESKTOP-FH59FG0 -force -exclude_run_results -include_config_settings

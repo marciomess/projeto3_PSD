@@ -38,7 +38,7 @@
 --  08/27/2013(MarshallW): Modified for the Nexys4 with Xilinx ISE 14.4\
 --              --added RGB and microphone
 --  7/22/2014(SamB): Modified for the Basys3 with Vivado 2014.2\
---              --Removed RGB and microphone
+--              --Removed RGB and microphone teste
 ----------------------------------------------------------------------------
 
 library IEEE;
