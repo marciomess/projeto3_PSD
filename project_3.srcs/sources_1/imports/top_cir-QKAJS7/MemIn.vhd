@@ -48,7 +48,7 @@ architecture Xmacro of MemIn is
 begin
 
 --  <-----Cut code below this line and paste into the architecture body---->
-
+--Teste comentário
 -- BRAM_TDP_MACRO: True Dual Port RAM
 --                 Artix-7
 -- Xilinx HDL Language Template, version 2016.4
