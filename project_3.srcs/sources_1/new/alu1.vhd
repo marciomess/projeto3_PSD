@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 10/16/2020 11:00:46 AM
+-- Create Date: 10/16/2020 12:23:53 PM
 -- Design Name: 
--- Module Name: registo - Behavioral
+-- Module Name: alu - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -18,9 +18,12 @@
 -- 
 ----------------------------------------------------------------------------------
 
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+use ieee.std_logic_signed.all;
+use IEEE.STD_LOGIC_ARITH.ALL;
+
+
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -31,26 +34,34 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity registo is
-    Port (
-    regin : in std_logic_vector(31 downto 0);
-    regout : out std_logic_vector(31 downto 0);
-    clk : in std_logic;
-    enablereg: in std_logic;
-    rst: in std_logic);
-end registo;
+entity alu1 is
+    port(
+    oper: in  std_logic_vector(2 downto 0);
+    data_in1: in  std_logic_vector(31 downto 0);
+    data_in2: in  std_logic_vector(31 downto 0);
+    res_alu : out std_logic_vector (31 downto 0));
 
-architecture Behavioral of registo is
+end alu1;
+
+architecture Behavioral of alu1 is
+
+
+
+ signal res_add : std_logic_vector (31 downto 0);
+ signal res_sub : std_logic_vector (31 downto 0);
+
 begin
-    process (clk)
-    begin
-        if (clk'event and clk='1' ) then
-             if  rst = '1' then
-               regout <= (others => '0');
-            end if;
-             if enablereg ='1' then
-              regout <= regin;
-            end if;  
-        end if;
-    end process;
+
+
+ -- add
+ res_add <= data_in1 + data_in2;
+ 
+--sub
+ res_sub <= data_in2 - data_in1;
+
+with oper select
+
+res_alu <= res_sub when "101",
+           res_add  when others;
+           
 end Behavioral;

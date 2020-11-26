@@ -97,20 +97,20 @@ alucode1: alu1 port map(
         );
         
         
-mult1: multiplier1 port map(
+mult1: multiplier port map(
     clk => clk
 
         );  
         
         
         
-accumone: accum1 port map(
+accumone: accum port map(
     clk => clk
 
         );   
         
         
- axtreme1: extreme port map(
+ extreme1: extreme port map(
     clk => clk
 
         );    
