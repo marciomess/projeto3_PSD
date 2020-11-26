@@ -25,6 +25,26 @@ entity circuit is
 end circuit;
 
 architecture Behavioral of circuit is
+
+  component control
+   port(
+       clk  : in  std_logic
+
+      );
+  end component;
+  
+  component datapath
+   port(
+    clk  : in  std_logic
+
+   );
+  end component;
+
+
+
+
+
+
   signal cnt                        : std_logic_vector(5 downto 0);
   signal cnt_o                      : std_logic_vector(5 downto 0);
   signal dataInIm, dataInRe         : std_logic_vector(11 downto 0);  -- Q5.7
@@ -39,6 +59,24 @@ architecture Behavioral of circuit is
   signal we        : std_logic;
 
 begin
+
+   inst_datapath : datapath port map(
+       clk => clk
+ 
+
+    );
+    
+
+  inst_control : control port map(
+      clk => clk
+
+    );
+    
+    
+
+    
+    
+
 
   counter : process (clk, rst)
   begin  -- process counter

@@ -2,10 +2,10 @@
 # Vivado v2020.1 (64-bit)
 # SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
 # IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
-# Start of session at: Wed Nov 25 16:36:08 2020
-# Process ID: 10384
+# Start of session at: Wed Nov 25 21:50:03 2020
+# Process ID: 2856
 # Current directory: C:/Users/joao/OneDrive - Universidade de Lisboa/Ambiente de Trabalho/lab3/projeto3_PSD
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent17032 C:\Users\joao\OneDrive - Universidade de Lisboa\Ambiente de Trabalho\lab3\projeto3_PSD\project_3.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent6244 C:\Users\joao\OneDrive - Universidade de Lisboa\Ambiente de Trabalho\lab3\projeto3_PSD\project_3.xpr
 # Log file: C:/Users/joao/OneDrive - Universidade de Lisboa/Ambiente de Trabalho/lab3/projeto3_PSD/vivado.log
 # Journal file: C:/Users/joao/OneDrive - Universidade de Lisboa/Ambiente de Trabalho/lab3/projeto3_PSD\vivado.jou
 #-----------------------------------------------------------
@@ -20,7 +20,15 @@ WARNING: [filemgmt 56-2] IPUserFilesDir: Could not find the directory 'C:/Users/
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Vivado/2020.1/data/ip'.
-open_project: Time (s): cpu = 00:00:20 ; elapsed = 00:00:07 . Memory (MB): peak = 1212.664 ; gain = 0.000
+open_project: Time (s): cpu = 00:00:22 ; elapsed = 00:00:15 . Memory (MB): peak = 1024.605 ; gain = 0.000
 update_compile_order -fileset sources_1
+open_project D:/wetransfer-2fda69/project_2/project_2.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Vivado/2020.1/data/ip'.
+open_project: Time (s): cpu = 00:00:24 ; elapsed = 00:00:09 . Memory (MB): peak = 1015.277 ; gain = 0.000
+close_project
 exit
-INFO: [Common 17-206] Exiting Vivado at Wed Nov 25 16:37:09 2020...
+INFO: [Common 17-206] Exiting Vivado at Wed Nov 25 22:02:30 2020...
