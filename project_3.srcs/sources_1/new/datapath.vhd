@@ -172,21 +172,29 @@ reg5: registo port map(
     
     );
 add1: add port map(
-    clk => clk
+    in_data1 => ,
+    in_data => ,
+    out_data => ,
 
         );
         
 add2: add port map(
-    clk => clk
+    in_data1 => ,
+    in_data => ,
+    out_data => ,
 
         );
         
 add3: add port map(
-    clk => clk
+    in_data1 => ,
+    in_data => ,
+    out_data => ,
 
         );
 add4: add port map(
-    clk => clk
+    in_data1 => ,
+    in_data => ,
+    out_data => ,
 
         );
 

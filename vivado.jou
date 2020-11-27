@@ -28,3 +28,7 @@ update_compile_order -fileset sources_1
 update_compile_order -fileset sources_1
 current_project project_2
 current_project project_3
+current_project project_2
+current_project project_3
+update_compile_order -fileset sources_1
+close_project

@@ -46,3 +46,6 @@ current_project project_3
 current_project project_2
 current_project project_3
 update_compile_order -fileset sources_1
+close_project
+exit
+INFO: [Common 17-206] Exiting Vivado at Fri Nov 27 18:29:24 2020...
