@@ -35,13 +35,12 @@ architecture Behavioral of circuit is
   
   component datapath
    port(
-    clk  : in  std_logic
+    clk  : in  std_logic;
+    data_Rin : in  std_logic_vector(11 downto 0);  -- Q5.7
+    data_Iin : in  std_logic_vector(11 downto 0)  -- Q5.7
 
    );
   end component;
-
-
-
 
 
 
@@ -59,23 +58,6 @@ architecture Behavioral of circuit is
   signal we        : std_logic;
 
 begin
-
-   inst_datapath : datapath port map(
-       clk => clk
- 
-
-    );
-    
-
-  inst_control : control port map(
-      clk => clk
-
-    );
-    
-    
-
-    
-    
 
 
   counter : process (clk, rst)
@@ -160,5 +142,22 @@ begin
     '0';
 
   statusLeds <= sum2(15 downto 0);
+   
+   
+   inst_datapath : datapath port map(
+   
+       clk => clk,
+       data_Rin => dataInRe_reg,
+       data_Iin => dataInIm_reg
+
+    );
+    
+
+  inst_control : control port map(
+      clk => clk
+
+    );
+    
+
 
 end Behavioral;
