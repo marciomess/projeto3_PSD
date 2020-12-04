@@ -36,6 +36,15 @@ architecture Behavioral of circuit is
   component datapath
    port(
     clk  : in  std_logic;
+    rst  : in  std_logic;
+    enable1: in  std_logic;
+    enable2: in  std_logic;
+    enable3: in  std_logic;
+    enable4: in  std_logic;
+    enable5  : in  std_logic;
+    enable6: in  std_logic;
+    enable7: in  std_logic;
+    enable8: in  std_logic;
     data_Rin : in  std_logic_vector(11 downto 0);  -- Q5.7
     data_Iin : in  std_logic_vector(11 downto 0)  -- Q5.7
 

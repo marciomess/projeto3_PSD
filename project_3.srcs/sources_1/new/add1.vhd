@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 10/28/2020 04:39:49 PM
+-- Create Date: 12/03/2020 07:19:35 PM
 -- Design Name: 
--- Module Name: multiplier - Behavioral
+-- Module Name: add1 - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -21,9 +21,6 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use ieee.std_logic_signed.all;
-use IEEE.STD_LOGIC_ARITH.ALL;
-
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -34,17 +31,13 @@ use IEEE.STD_LOGIC_ARITH.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity multiplier is
-port(
-   data_in1: in  std_logic_vector(11 downto 0);
-   data_in2: in  std_logic_vector(11 downto 0);
-   res_mult : out std_logic_vector (23 downto 0));
-end multiplier;
+entity add1 is
+--  Port ( );
+end add1;
 
-architecture Behavioral of multiplier is
+architecture Behavioral of add1 is
 
 begin
 
-res_mult <= data_in1 * data_in2;
 
 end Behavioral;
