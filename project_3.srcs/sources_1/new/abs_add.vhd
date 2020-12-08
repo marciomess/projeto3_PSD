@@ -31,6 +31,7 @@ use ieee.numeric_std.all;
 -- any Xilinx leaf cells in this code.
 --library UNISIM;
 --use UNISIM.VComponents.all;
+--o abs add está mal e adicionei esta linha para testar o git merge
 
 entity abs_add is
 port(
