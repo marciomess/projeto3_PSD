@@ -33,8 +33,8 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity registo is
     Port (
-    regin : in std_logic_vector(31 downto 0);
-    regout : out std_logic_vector(31 downto 0);
+    regin : in std_logic_vector(11 downto 0);
+    regout : out std_logic_vector(11 downto 0);
     clk : in std_logic;
     enablereg: in std_logic;
     rst: in std_logic);

@@ -19,8 +19,9 @@
 ----------------------------------------------------------------------------------
 
 
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
+library ieee;
+use ieee.std_logic_1164.all;        
+use ieee.numeric_std.all;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -32,12 +33,14 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity abs_add is
---  Port ( );
+port(
+   data_in1: in  std_logic_vector(11 downto 0);
+   data_in2: in  std_logic_vector(11 downto 0);
+   res_abs_add : out std_logic_vector (23 downto 0));
 end abs_add;
 
 architecture Behavioral of abs_add is
 
 begin
-
-
+res_abs_add <= std_logic_vector(abs(signed(data_in1)+signed(data_in2)));
 end Behavioral;

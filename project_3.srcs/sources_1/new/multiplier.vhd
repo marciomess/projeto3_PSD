@@ -41,10 +41,22 @@ port(
    res_mult : out std_logic_vector (23 downto 0));
 end multiplier;
 
+
 architecture Behavioral of multiplier is
 
-begin
+--signal int_in1 :   std_logic_vector (8 downto 0);
+--signal int_in2 :   std_logic_vector (8 downto 0);
 
+--signal frac_in1 :   std_logic_vector (12 downto 0);
+--signal frac_in2 :   std_logic_vector (12 downto 0);
+
+
+
+begin
+--int_in1 <= data_in1(11 downto 7);
+--int_in2 <= data_in2(11 downto 7);
+--int_in1 <= data_in1(6 downto 0);
+--int_in2 <= data_in2(6 downto 0);
 res_mult <= data_in1 * data_in2;
 
 end Behavioral;

@@ -55,8 +55,8 @@ architecture Behavioral of datapath is
 component registo is
     port(
     clk : in std_logic;
-    regin : in std_logic_vector(31 downto 0);
-    regout : out std_logic_vector(31 downto 0);
+    regin : in std_logic_vector(11 downto 0);
+    regout : out std_logic_vector(11 downto 0);
     enablereg: in std_logic;
     rst: in std_logic
   );
@@ -155,6 +155,10 @@ signal addout1 :   std_logic_vector (23 downto 0);
 signal addout2 :   std_logic_vector (23 downto 0);
 signal addout3 :   std_logic_vector (23 downto 0);
 signal addout4 :   std_logic_vector (23 downto 0);
+
+
+--absolute sum signal out
+signal abs_add_out :   std_logic_vector (23 downto 0);
 
 
 
@@ -268,8 +272,9 @@ sub2: sub port map(
         );
         
 absadd: abs_add port map(
-    clk => clk
-
+    data_in1 => addout3,
+    data_in2 => addout4,
+    res_abs_add => abs_add_out
         );
 
 
