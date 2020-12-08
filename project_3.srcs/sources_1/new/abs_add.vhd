@@ -34,8 +34,8 @@ use ieee.numeric_std.all;
 
 entity abs_add is
 port(
-   data_in1: in  std_logic_vector(11 downto 0);
-   data_in2: in  std_logic_vector(11 downto 0);
+   data_in1: in  std_logic_vector(23 downto 0);
+   data_in2: in  std_logic_vector(23 downto 0);
    res_abs_add : out std_logic_vector (23 downto 0));
 end abs_add;
 
