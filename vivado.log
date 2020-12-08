@@ -26,3 +26,19 @@ remove_files  C:/Users/marcio/Desktop/projeto3/projeto3_PSD/project_3.srcs/sourc
 launch_runs synth_1 -jobs 6
 [Tue Dec  8 18:10:47 2020] Launched synth_1...
 Run output will be captured here: C:/Users/marcio/Desktop/projeto3/projeto3_PSD/project_3.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 6
+[Tue Dec  8 18:13:54 2020] Launched synth_1...
+Run output will be captured here: C:/Users/marcio/Desktop/projeto3/projeto3_PSD/project_3.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 6
+[Tue Dec  8 18:51:01 2020] Launched synth_1...
+Run output will be captured here: C:/Users/marcio/Desktop/projeto3/projeto3_PSD/project_3.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 6
+[Tue Dec  8 18:52:06 2020] Launched synth_1...
+Run output will be captured here: C:/Users/marcio/Desktop/projeto3/projeto3_PSD/project_3.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 6
+[Tue Dec  8 18:53:23 2020] Launched synth_1...
+Run output will be captured here: C:/Users/marcio/Desktop/projeto3/projeto3_PSD/project_3.runs/synth_1/runme.log
