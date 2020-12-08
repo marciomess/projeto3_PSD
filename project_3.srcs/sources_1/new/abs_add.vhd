@@ -32,6 +32,7 @@ use ieee.numeric_std.all;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 --o abs add está mal e adicionei esta linha para testar o git merge
+--o main branch tem esta mensagem
 
 entity abs_add is
 port(
