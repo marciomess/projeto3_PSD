@@ -31,16 +31,16 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity registo is
+entity registo2 is
     Port (
-    regin : in std_logic_vector(11 downto 0);
-    regout : out std_logic_vector(11 downto 0);
+    regin : in std_logic_vector(23 downto 0);
+    regout : out std_logic_vector(23 downto 0);
     clk : in std_logic;
     enablereg: in std_logic;
     rst: in std_logic);
-end registo;
+end registo2;
 
-architecture Behavioral of registo is
+architecture Behavioral of registo2 is
 begin
     process (clk)
     begin

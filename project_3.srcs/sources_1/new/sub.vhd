@@ -35,8 +35,8 @@ use IEEE.STD_LOGIC_ARITH.ALL;
 
 entity sub is
 port(
-   data_in1: in  std_logic_vector(11 downto 0);
-   data_in2: in  std_logic_vector(11 downto 0);
+   data_in1: in  std_logic_vector(23 downto 0);
+   data_in2: in  std_logic_vector(23 downto 0);
    res_sub : out std_logic_vector (23 downto 0));
 end sub;
 
