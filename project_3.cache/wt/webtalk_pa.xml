@@ -3,7 +3,7 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
-<application name="pa" timeStamp="Tue Dec  8 18:53:23 2020">
+<application name="pa" timeStamp="Wed Dec  9 18:51:41 2020">
 <section name="Project Information" visible="false">
 <property name="ProjectID" value="d233098b5b9c4891b936bd096eae3cff" type="ProjectID"/>
 <property name="ProjectIteration" value="1" type="ProjectIteration"/>
@@ -20,17 +20,18 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="AddSources" value="14" type="JavaHandler"/>
 <property name="CloseProject" value="1" type="JavaHandler"/>
 <property name="EditDelete" value="3" type="JavaHandler"/>
-<property name="FileExit" value="11" type="JavaHandler"/>
+<property name="FileExit" value="16" type="JavaHandler"/>
 <property name="OpenProject" value="1" type="JavaHandler"/>
 <property name="RunSynthesis" value="5" type="JavaHandler"/>
 <property name="SaveFileProxyHandler" value="3" type="JavaHandler"/>
 <property name="ShowView" value="4" type="JavaHandler"/>
 </item>
 <item name="Gui Handlers">
-<property name="BaseDialog_CANCEL" value="2" type="GuiHandlerData"/>
+<property name="AbstractFileView_RELOAD" value="2" type="GuiHandlerData"/>
+<property name="BaseDialog_CANCEL" value="3" type="GuiHandlerData"/>
 <property name="BaseDialog_OK" value="34" type="GuiHandlerData"/>
 <property name="CreateSrcFileDialog_FILE_NAME" value="12" type="GuiHandlerData"/>
-<property name="FileSetPanel_FILE_SET_PANEL_TREE" value="430" type="GuiHandlerData"/>
+<property name="FileSetPanel_FILE_SET_PANEL_TREE" value="451" type="GuiHandlerData"/>
 <property name="FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE" value="6" type="GuiHandlerData"/>
 <property name="GettingStartedView_OPEN_PROJECT" value="1" type="GuiHandlerData"/>
 <property name="MainMenuMgr_EDIT" value="4" type="GuiHandlerData"/>
@@ -40,7 +41,8 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="MainMenuMgr_PROJECT" value="3" type="GuiHandlerData"/>
 <property name="MainMenuMgr_REPORTS" value="2" type="GuiHandlerData"/>
 <property name="MainMenuMgr_SETTINGS" value="1" type="GuiHandlerData"/>
-<property name="MsgTreePanel_MESSAGE_VIEW_TREE" value="6" type="GuiHandlerData"/>
+<property name="MsgTreePanel_MESSAGE_VIEW_TREE" value="11" type="GuiHandlerData"/>
+<property name="MsgView_INFORMATION_MESSAGES" value="1" type="GuiHandlerData"/>
 <property name="PACommandNames_ADD_SOURCES" value="14" type="GuiHandlerData"/>
 <property name="PACommandNames_AUTO_UPDATE_HIER" value="10" type="GuiHandlerData"/>
 <property name="PAViews_CODE" value="10" type="GuiHandlerData"/>
@@ -55,9 +57,9 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="SyntheticaGettingStartedView_RECENT_PROJECTS" value="1" type="GuiHandlerData"/>
 </item>
 <item name="Other">
-<property name="GuiMode" value="31" type="GuiMode"/>
+<property name="GuiMode" value="35" type="GuiMode"/>
 <property name="BatchMode" value="0" type="BatchMode"/>
-<property name="TclMode" value="25" type="TclMode"/>
+<property name="TclMode" value="29" type="TclMode"/>
 </item>
 </section>
 </application>
