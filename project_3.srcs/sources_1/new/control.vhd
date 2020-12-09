@@ -33,156 +33,160 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity control is
  Port ( 
-  clk    : in  std_logic;
-  rst : in std_logic;
- enable1 : out std_logic;
- enable2 : out std_logic;
- enable3 : out std_logic;
- enable4 : out std_logic;
- enable5 : out std_logic;
- enable6 : out std_logic;
- enable7 : out std_logic;
- enable8 : out std_logic;
- enable9 : out std_logic;
- enable10 : out std_logic;
- enable11 : out std_logic;
- enable12 : out std_logic;
- enable13 : out std_logic;
- enable14 : out std_logic;
- enable15 : out std_logic;
- enable16 : out std_logic;
- enable17 : out std_logic;
- enable18 : out std_logic;
- enable19 : out std_logic;
- enable20 : out std_logic;
- enable21 : out std_logic;
- enable22 : out std_logic;
- startMode: in std_logic;
- cnt : in std_logic_vector(5 downto 0)
-  
+  clk    : in  std_logic
  );
 end control;
 
 
 architecture Behavioral of control is
 
+
+ component counter1
+    port(
+      clk    : in  std_logic
+      );
+  end component;
   
-  
-  type fsm_states is (start, x11, x12, x21, x22, mult, add_sub, add, accmbasadd, mem_out, finish);
-  signal currstate, nextstate : fsm_states;
-  signal adressout :  std_logic_vector(9 downto 0);
-   signal adressin :  std_logic_vector(9 downto 0);
-  signal count_en :  std_logic;
-  signal control :  std_logic;
-  signal counter1en :  std_logic;
-   signal counter2en :  std_logic;
+    component counter2
+    port(
+      clk    : in  std_logic
+      );
+  end component;
 
 begin
 
-    
- state_reg : process (clk, startMode)
-  begin
-    if clk'event and clk = '1' then
-      currstate <= nextstate;
-      if rst = '1' and startMode = '1' then 
-       currstate <= x11;
-      elsif  rst = '1' then
-      currstate <= start;
-      end if;
-    end if;
-  end process;
-
-
-state_comb : process (currstate, cnt)
-begin  --  process
-
-    nextstate <= currstate;
-    
-    
-    case currstate is
-    
-         when start =>
-
-         nextstate<= x11;
-
-         when x11 =>
-            
-            enable1 <= '1';
-            enable2 <= '1';
-
-            nextstate<= x12;
-            
-          when x12 =>
-          
-          
-            enable3 <= '1';
-            enable4 <= '1';
-            nextstate<= x21 ;
-            
-            
-           when x21 =>
-           
-            enable5 <= '1';
-            enable6 <= '1';
-            nextstate<= x22 ;
-            
-            when x22 =>
+  inst_counter1 : counter1 port map(
+    clk    => clk
+    );
   
-            enable7 <= '1';
-            enable8 <= '1';
-            nextstate<= mult ;
-            
-            
-            when mult =>
-            
-            
-            enable9 <= '1';
-            enable10 <= '1';
-            enable11 <= '1';
-            enable12 <= '1';
-            enable13 <= '1';
-            enable14 <= '1';
-            enable15 <= '1';
-            enable16 <= '1';
-            
-            nextstate<= add_sub;
+    inst_counter2 : counter2 port map(
+    clk    => clk
+    );
+    
+    
+    
+    
+-- state_reg : process (clk)
+--  begin
+--    if clk'event and clk = '1' then
+--      currstate <= nextstate;
+--      if rst = '1' then 
+--       currstate <= s_initial;
+--      end if;
+--    end if;
+--  end process;
 
 
-           when add_sub =>
+--state_comb : process (currstate, adressin)
+--begin  --  process
+
+--    nextstate <= currstate;
+    
+    
+--    case currstate is
+--when s_initial =>
+
+--            counter1en <= '0';
+--            counter2en <= '0';
+--            done <= '0';
+--            we <= '0';
+--            oper <= "000";
+--            enable1 <= '0'; 
+--            enable2 <= '0'; 
+--            enable3 <= '0'; 
+--            enable4 <= '0';
+--            nextstate<= cycle1;
             
-            enable17 <= '1';
-            enable18 <= '1';
-            enable19 <= '1';
-            enable20 <= '1';
-            nextstate<= add;
+--            --end if;
+--            when cycle1 =>
+--            counter1en <= '0';
+--            counter2en <= '0';
+--            -- operacao 7, 4, 1
+--            done <= '0';
+--            we <= '0';
+--            oper    <= "001";
+--            enable1 <= '1'; 
+--            enable2 <= '1'; 
+--            enable3 <= '1'; 
+--            enable4 <= '0';
+--            nextstate<= cycle2 ;
+            
+            
+--            when cycle2 =>
+--            counter1en <= '0';
+--            counter2en <= '0';
+--            -- operacao 5, 9, 8
+--            done <= '0';
+--            we <= '0';
+--            oper      <= "010";
+--            enable1 <= '1'; 
+--            enable2 <= '1'; 
+--            enable3 <= '0'; 
+--            enable4 <= '1'; 
+--            nextstate<= cycle3 ;
+            
+--            when cycle3 =>
+--            counter1en <= '0';
+--            counter2en <= '0';
+--            -- operacao 2, 6
+--            done <= '0';
+--            we <= '0';
+--            oper      <= "100";
+--            enable1 <= '1'; 
+--            enable2 <= '1'; 
+--            enable3 <= '0'; 
+--            enable4 <= '0'; 
+            
+--            nextstate<= cycle4 ;
+            
+            
+--            when cycle4 =>
+--            counter1en <= '1';
+--            counter2en <= '1';
+--            done <= '0';
+--            we <= '0';
+--            oper      <= "101";
+--            enable1 <= '0'; 
+--            enable2 <= '0'; 
+--            enable3 <= '0'; 
+--            enable4 <= '1'; 
+--            nextstate<= cycle5;
+
+     
+            
+            
+--           when cycle5 =>
+--            counter1en <= '0';
+--            counter2en <= '0';
+--            done <= '0';
+--            oper   <= "110";
+--            enable1 <= '0'; 
+--            enable2 <= '0'; 
+--            enable3 <= '0'; 
+--            enable4 <= '0';
+--            we <= '1';
+--            if adressin = X"10" then
+--               nextstate<= s_finish;
+--           else 
+--               nextstate <= cycle1;
+--            end if;   
           
+
           
-            when add =>
+--            when s_finish =>
+--            counter1en <= '0';
+--            counter2en <= '0';
+--            done <= '1';
+--            we <= '0';
+--            oper <= "000";
+--            enable1 <= '0'; 
+--            enable2 <= '0'; 
+--            enable3 <= '0'; 
+--            enable4 <= '0';       
+--end case;
+--end process;
 
-             nextstate<= accmbasadd;
-             
-            when accmbasadd =>
-
-            nextstate<= mem_out;
-            
-
-            
-            
-           when mem_out =>
- 
-          if cnt = X"1F" then
-               nextstate<= finish;
-           else 
-               nextstate <= mult;
-            end if;   
-            
-           when finish =>
-           
-           
-            
-
-end case;
-end process;
-
+--addr_out <= adressout;
+--address <= adressin;
 
 end Behavioral;

@@ -43,20 +43,6 @@ entity datapath is
  enable6 : in std_logic;
  enable7 : in std_logic;
  enable8 : in std_logic;
- enable9 : in std_logic;
- enable10 : in std_logic;
- enable11 : in std_logic;
- enable12 : in std_logic;
- enable13 : in std_logic;
- enable14 : in std_logic;
- enable15 : in std_logic;
- enable16 : in std_logic;
- enable17 : in std_logic;
- enable18 : in std_logic;
- enable19 : in std_logic;
- enable20 : in std_logic;
- enable21 : in std_logic;
- enable22 : in std_logic;
  data_Rin : in  std_logic_vector(11 downto 0);  -- Q5.7
  data_Iin : in  std_logic_vector(11 downto 0)  -- Q5.7
  
@@ -66,63 +52,29 @@ end datapath;
 architecture Behavioral of datapath is
 
 
-component registo1 is
+component registo is
     port(
     clk : in std_logic;
-    regin : in std_logic_vector(11 downto 0);
-    regout : out std_logic_vector(11 downto 0);
+    regin : in std_logic_vector(31 downto 0);
+    regout : out std_logic_vector(31 downto 0);
     enablereg: in std_logic;
     rst: in std_logic
   );
  end component;
- 
- 
- component registo2 is
-    port(
-    clk : in std_logic;
-    regin : in std_logic_vector(23 downto 0);
-    regout : out std_logic_vector(23 downto 0);
-    enablereg: in std_logic;
-    rst: in std_logic
-  );
- end component;
- 
-  component registo3 is
-    port(
-    clk : in std_logic;
-    regin : in std_logic_vector(24 downto 0);
-    regout : out std_logic_vector(24 downto 0);
-    enablereg: in std_logic;
-    rst: in std_logic
-  );
- end component;
- 
-   component registo4 is
-    port(
-    clk : in std_logic;
-    regin : in std_logic_vector(25 downto 0);
-    regout : out std_logic_vector(25 downto 0);
-    enablereg: in std_logic;
-    rst: in std_logic
-  );
- end component;
- 
  
  
   component abs_add is
     port(
-        data_in1: in  std_logic_vector(23 downto 0);
-        data_in2: in  std_logic_vector(23 downto 0);
+        data_in1: in  std_logic_vector(11 downto 0);
+        data_in2: in  std_logic_vector(11 downto 0);
         res_abs_add : out std_logic_vector (23 downto 0)
         );
     end component;
-    
-    
  
  component add is
     port(
-        data_in1: in  std_logic_vector(23 downto 0);
-        data_in2: in  std_logic_vector(23 downto 0);
+        data_in1: in  std_logic_vector(11 downto 0);
+        data_in2: in  std_logic_vector(11 downto 0);
         res_add : out std_logic_vector (23 downto 0)
         );
     end component;
@@ -130,8 +82,8 @@ component registo1 is
     
  component sub is
     port(
-        data_in1: in  std_logic_vector(23 downto 0);
-        data_in2: in  std_logic_vector(23 downto 0);
+        data_in1: in  std_logic_vector(11 downto 0);
+        data_in2: in  std_logic_vector(11 downto 0);
         res_sub : out std_logic_vector (23 downto 0));
     end component;
 
@@ -145,21 +97,27 @@ component registo1 is
     
      component accum
     port(
-        clk : in std_logic;
-        input : std_logic_vector (23 downto 0)
-        
-        );
+        clk : in std_logic    );
     end component;
 
 
 
    component extreme is
     port(
-        clk : in std_logic    
-        
-        );
+        clk : in std_logic    );
     end component;
-   
+    
+    
+     component splitter is
+    port(
+        clk : in std_logic    );
+    end component;
+    
+     component absolute is
+    port(
+        clk : in std_logic    );
+    end component;
+
 
 --register inputs and outputs
 --signal x11_Rin :   std_logic_vector (11 downto 0);
@@ -190,23 +148,7 @@ signal multout6 :   std_logic_vector (23 downto 0);
 signal multout7 :   std_logic_vector (23 downto 0);
 signal multout8 :   std_logic_vector (23 downto 0);
 
---subtractor and adder outputs inputs
-signal subin1_A :   std_logic_vector (23 downto 0);
-signal subin2_A :   std_logic_vector (23 downto 0);
-signal addin1_A :   std_logic_vector (23 downto 0);
-signal addin2_A :   std_logic_vector (23 downto 0);
-signal addin3_A :   std_logic_vector (23 downto 0);
-signal addin4_A :   std_logic_vector (23 downto 0);
-
-
-signal subin1_B :   std_logic_vector (23 downto 0);
-signal subin2_B :   std_logic_vector (23 downto 0);
-signal addin1_B :   std_logic_vector (23 downto 0);
-signal addin2_B :   std_logic_vector (23 downto 0);
-signal addin3_B :   std_logic_vector (23 downto 0);
-signal addin4_B :   std_logic_vector (23 downto 0);
-
-
+--subtractor and adder outputs
 signal subout1 :   std_logic_vector (23 downto 0);
 signal subout2 :   std_logic_vector (23 downto 0);
 signal addout1 :   std_logic_vector (23 downto 0);
@@ -214,16 +156,12 @@ signal addout2 :   std_logic_vector (23 downto 0);
 signal addout3 :   std_logic_vector (23 downto 0);
 signal addout4 :   std_logic_vector (23 downto 0);
 
-signal in_accm1 :   std_logic_vector (23 downto 0);
-signal in_accm2 :   std_logic_vector (23 downto 0);
-
-
 
 
 begin
 
 
-reg1: registo1 port map(
+reg1: registo port map(
     clk => clk,
     rst => rst,
     regin => data_Rin,
@@ -231,7 +169,7 @@ reg1: registo1 port map(
     enablereg => enable1
     );
 
-reg2: registo1 port map(
+reg2: registo port map(
     clk => clk,
     rst => rst,
     regin => data_Rin,
@@ -239,7 +177,7 @@ reg2: registo1 port map(
     enablereg => enable2
     );
     
-reg3: registo1 port map(
+reg3: registo port map(
     clk => clk,
     rst => rst,
     regin => data_Rin,
@@ -247,7 +185,7 @@ reg3: registo1 port map(
     enablereg => enable3
     );
 
-reg4: registo1 port map(
+reg4: registo port map(
     clk => clk,
     rst => rst,
     regin => data_Rin,
@@ -256,7 +194,7 @@ reg4: registo1 port map(
     );
 
 
-reg5: registo1 port map(
+reg5: registo port map(
     clk => clk,
     rst => rst,
     regin => data_Iin,
@@ -264,7 +202,7 @@ reg5: registo1 port map(
     enablereg => enable5
     );
     
- reg6: registo1 port map(
+ reg6: registo port map(
     clk => clk,
     rst => rst,
     regin => data_Iin,
@@ -272,7 +210,7 @@ reg5: registo1 port map(
     enablereg => enable6
     );
     
-  reg7: registo1 port map(
+  reg7: registo port map(
     clk => clk,
     rst => rst,
     regin => data_Iin,
@@ -280,195 +218,59 @@ reg5: registo1 port map(
     enablereg => enable7
     );
     
-   reg8: registo1 port map(
+   reg8: registo port map(
     clk => clk,
     rst => rst,
     regin => data_Iin,
     regout => x22_Iout,
     enablereg => enable8
     );
-    
-    
-   reg9: registo2 port map(
-    clk => clk,
-    rst => rst,
-    regin => multout1,
-    regout => subin1_A,
-    enablereg => enable9
-    );
-    
-    
-  reg10: registo2 port map(
-    clk => clk,
-    rst => rst,
-    regin => multout2,
-    regout => subin1_B,
-    enablereg => enable10
-    );
-    
-    
-   reg11: registo2 port map(
-    clk => clk,
-    rst => rst,
-    regin => multout3,
-    regout => addin1_A,
-    enablereg => enable11
-    );
-    
-    
-    
-   reg12: registo2 port map(
-    clk => clk,
-    rst => rst,
-    regin => multout4,
-    regout => addin1_B,
-    enablereg => enable12
-    );
-    
-    
-       
-   reg13: registo2 port map(
-    clk => clk,
-    rst => rst,
-    regin => multout5,
-    regout => subin2_A,
-    enablereg => enable13
-    );
-    
-    
-  reg14: registo2 port map(
-    clk => clk,
-    rst => rst,
-    regin => multout6,
-    regout => subin2_B,
-    enablereg => enable14
-    );
-    
-    
-    reg15: registo2 port map(
-    clk => clk,
-    rst => rst,
-    regin => multout7,
-    regout => addin2_A,
-    enablereg => enable15
-    );
-    
-    
-    
-    reg16: registo2 port map(
-    clk => clk,
-    rst => rst,
-    regin => multout8,
-    regout => addin2_B,
-    enablereg => enable16
-    );
-    
-    
-    
-    reg17: registo3 port map(
-    clk => clk,
-    rst => rst,
-    regin => subout1,
-    regout => addin3_A,
-    enablereg => enable17
-    );
-    
-    
-    reg18: registo3 port map(
-    clk => clk,
-    rst => rst,
-    regin => addout1,
-    regout => addin3_B,
-    enablereg => enable18
-    );
-    
-    
-    reg19: registo3 port map(
-    clk => clk,
-    rst => rst,
-    regin => subout2,
-    regout => addin4_A,
-    enablereg => enable19
-    );
-    
-    
-    
-    reg20: registo3 port map(
-    clk => clk,
-    rst => rst,
-    regin => addout2,
-    regout => addin4_B,
-    enablereg => enable20
-    );
-    
-    
-    
-    reg21: registo4 port map(
-    clk => clk,
-    rst => rst,
-    regin => addout3,
-    regout => in_accm1,
-    enablereg => enable21
-    
-    );
-    
-    reg22: registo4 port map(
-    clk => clk,
-    rst => rst,
-    regin => addout4,
-    regout => in_accm2,
-    enablereg => enable22
-    
-    );    
-    
-    
-    
 add1: add port map(
-    data_in1 => addin1_A,
-    data_in2 => addin1_B,
+    data_in1 => multout3,
+    data_in2 => multout4,
     res_add => addout1
 
         );
         
 add2: add port map(
-    data_in1 => addin2_A,
-    data_in2 => addin1_B,
+    data_in1 => multout7,
+    data_in2 => multout8,
     res_add => addout2
 
         );
         
 add3: add port map(
-    data_in1 => addin3_A,
-    data_in2 => addin3_B,
+    data_in1 => subout1,
+    data_in2 => addout1,
     res_add => addout3
 
         );
 add4: add port map(
-    data_in1 => addin4_A,
-    data_in2 => addin4_B,
+    data_in1 => subout2,
+    data_in2 => addout2,
     res_add => addout4
 
         );
 
 sub1: sub port map(
-    data_in1 => subin1_A,
-    data_in2 => subin1_B,
+    data_in1 => multout1,
+    data_in2 => multout2,
     res_sub => subout1
 
         );
         
         
 sub2: sub port map(
-    data_in1 => subin2_A,
-    data_in2 => subin2_B,
+    data_in1 => multout5,
+    data_in2 => multout6,
     res_sub => subout2
 
         );
         
 absadd: abs_add port map(
-     data_in1 => in_accm1,
-     data_in2 => in_accm2
-     );
+    clk => clk
+
+        );
 
 
 mult1: multiplier port map(
@@ -516,6 +318,7 @@ mult5: multiplier port map(
 
         ); 
 
+
  mult8: multiplier port map(
     data_in1 => x12_Rout,
     data_in2 => x21_Iout,
@@ -524,14 +327,12 @@ mult5: multiplier port map(
         );            
         
 accum1: accum port map(
-    clk => clk,
-    input => in_accm1
+    clk => clk
+
         ); 
-        
-        
 accum2: accum port map(
-    clk => clk,
-    input => in_accm2
+    clk => clk
+
         );    
         
         
@@ -539,6 +340,16 @@ accum2: accum port map(
     clk => clk
 
         );    
-              
+        
+splitter1: splitter port map(
+    clk => clk
+
+        );        
+
+absolute1: absolute port map(
+    clk => clk
+
+        );        
                
+
 end Behavioral;
